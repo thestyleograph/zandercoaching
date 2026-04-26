@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 110" fill="white">
+  <!-- Z – thick geometric Z with angular inner cut -->
+  <path d="M0,2 L80,2 L80,18 L32,18 L80,72 L80,88 L0,88 L0,72 L48,72 L0,18 Z"/>
+  <!-- A – bold triangle, no crossbar, tight negative space -->
+  <path d="M88,88 L120,2 L152,88 L134,88 L120,36 L106,88 Z"/>
+  <!-- N – bold angular N -->
+  <path d="M162,88 L162,2 L178,2 L222,58 L222,2 L238,2 L238,88 L222,88 L178,32 L178,88 Z"/>
+  <!-- D – angular D with straight-segment curve -->
+  <path d="M250,2 L290,2 L310,14 L318,32 L318,58 L310,76 L290,88 L250,88 Z M266,18 L266,72 L286,72 L298,64 L302,50 L302,40 L298,26 L286,18 Z"/>
+  <!-- E – geometric three-bar E, slightly shorter bars -->
+  <path d="M328,2 L388,2 L388,18 L344,18 L344,37 L380,37 L380,53 L344,53 L344,72 L388,72 L388,88 L328,88 Z"/>
+  <!-- R – bold R with angular leg -->
+  <path d="M398,2 L440,2 Q462,2 468,14 Q474,24 474,32 Q474,44 466,52 Q458,58 446,58 L472,88 L452,88 L428,58 L414,58 L414,88 L398,88 Z M414,18 L414,44 L438,44 Q450,44 455,38 Q458,34 458,32 Q458,26 454,22 Q448,18 438,18 Z"/>
+  <!-- BY SEBASTIAN HÄNEL – thin, wide-tracked subtitle -->
+  <text x="236" y="107" text-anchor="middle" font-family="'Inter', Arial, Helvetica, sans-serif" font-size="13" letter-spacing="6" font-weight="300" fill="white">BY SEBASTIAN HÄNEL</text>
+</svg>
