@@ -884,15 +884,18 @@
 
     .carousel-item {
       flex-shrink: 0;
-      width: 360px;
+      width: 220px;
     }
 
     .carousel-item-inner {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 9 / 16;
       background: #111;
       border-radius: 12px;
       overflow: hidden;
       position: relative;
+    }
+    .carousel-item-inner div[style*="padding-top"] {
+      padding-top: 177.78% !important;
     }
 
     .carousel-item-label {
