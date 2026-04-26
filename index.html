@@ -455,59 +455,94 @@
 
     .schuld-callout {
       background: #f9fafb;
-      border-left: 4px solid var(--accent);
-      padding: 24px;
-      border-radius: 8px;
+      padding: 40px 36px;
+      border-radius: 16px;
     }
 
-    .schuld-callout .bold-title {
-      font-weight: 700;
-      font-size: 20px;
-      color: #0a0a0a;
-      margin-bottom: 16px;
+    .schuld-headline-group {
+      margin-bottom: 32px;
     }
-
-    .schuld-callout p {
+    .schuld-headline-group .line1 {
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 600;
       color: #374151;
-      line-height: 1.7;
-      margin-bottom: 12px;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .schuld-headline-group .line2 {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 800;
+      color: #0a0a0a;
+      line-height: 1.3;
+    }
+    .schuld-headline-group .line2 .gold {
+      color: var(--accent);
     }
 
-    .schuld-callout .italic {
+    .schuld-callout .body-text {
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .schuld-callout .highlight-line {
       font-style: italic;
+      color: #0a0a0a;
+      font-weight: 500;
+      font-size: 17px;
+      padding: 16px 0 16px 20px;
+      border-left: 3px solid var(--accent);
+      margin: 24px 0;
+      background: rgba(255,184,0,0.04);
+      border-radius: 0 8px 8px 0;
     }
 
-    .schuld-bullets {
-      padding-left: 16px;
-      border-left: 2px solid #d1d5db;
-      margin: 16px 0;
+    .schuld-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 28px 0;
     }
-
-    .schuld-bullets p {
+    .schuld-questions p {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      margin-bottom: 4px;
+      gap: 12px;
+      font-size: 15px;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 0;
     }
-
-    .schuld-bullets .dot {
+    .schuld-questions .q-dash {
       color: var(--accent);
-      margin-top: 4px;
+      font-weight: 700;
+      font-size: 18px;
+      flex-shrink: 0;
+      line-height: 1.5;
     }
 
-    .schuld-divider {
-      padding-top: 16px;
-      border-top: 2px solid rgba(255,184,0,0.4);
-      margin-top: 16px;
+    .schuld-transition {
+      font-size: clamp(18px, 2.2vw, 22px);
+      font-weight: 700;
+      color: #0a0a0a;
+      margin: 36px 0 20px;
+      padding-top: 28px;
+      border-top: 2px solid rgba(255,184,0,0.3);
     }
 
-    .schuld-divider .accent-text {
+    .schuld-solution {
+      color: #374151;
+      font-size: 16px;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .schuld-solution .accent {
       color: var(--accent);
       font-weight: 600;
     }
-
-    .schuld-divider p {
-      color: #374151;
+    .schuld-solution strong {
+      color: #0a0a0a;
+      font-weight: 600;
     }
 
     .schuld-image {
@@ -629,6 +664,25 @@
       overflow: hidden;
       color: #fff;
       box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+      /* Reveal animation */
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .pillar-card.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .pillar-card:nth-child(2) { transition-delay: 0ms; }
+    .pillar-card:nth-child(3) { transition-delay: 150ms; }
+    .pillar-card:nth-child(4) { transition-delay: 300ms; }
+    .pillar-card:nth-child(5) { transition-delay: 450ms; }
+    @media (prefers-reduced-motion: reduce) {
+      .pillar-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
     }
     .pillar-card::before {
       content: "";
@@ -740,8 +794,11 @@
         right: auto !important;
         top: auto !important;
         bottom: auto !important;
-        transform: none;
         width: min(100%, 520px);
+        transform: translateY(40px);
+      }
+      .pillar-card.is-visible {
+        transform: translateY(0);
       }
       .top-left { order: 1; }
       .top-right { order: 2; }
@@ -2127,7 +2184,7 @@
       </a>
 
       <nav class="nav">
-        <a href="#system">Das Zander System</a>
+        <a href="#system">Die Zander Strategie</a>
         <a href="#ergebnisse">Ergebnisse</a>
         <a href="#ueber-sebastian">Über Sebastian</a>
         <a href="#ressourcen">Ressourcen</a>
@@ -2240,36 +2297,42 @@
       <div class="schuld-grid">
         <div>
           <div class="schuld-callout">
-            <p class="bold-title">Zanderangeln ist kein Zufall.</p>
-            <p>Es folgt bestimmten Mustern, Abläufen und Entscheidungen,<br>die man lernen und verstehen kann.</p>
-            <p>Viele Angler probieren viel aus:<br>andere Spots, neue Köder, andere Techniken –<br>doch ohne klares System bleibt es oft ein Rätsel.</p>
-            <p>Und genau das führt zu dem Gefühl am Wasser:<br><span class="italic">nicht genau zu wissen, was jetzt wirklich richtig ist.</span></p>
-
-            <div class="schuld-bullets">
-              <p><span class="dot">•</span> <span>Bleibe ich hier oder wechsle ich den Spot?</span></p>
-              <p><span class="dot">•</span> <span>Ist es der falsche Köder – oder die falsche Führung?</span></p>
-              <p><span class="dot">•</span> <span>Liegt es an der Uhrzeit, am Wasser oder an mir?</span></p>
+            <div class="schuld-headline-group">
+              <p class="line1">Du fängst nicht zu wenig, weil dir Motivation fehlt.</p>
+              <p class="line2">Sondern weil dir ein <span class="gold">klares System fehlt.</span></p>
             </div>
 
-            <p style="font-weight:600;">Was fehlt, ist keine Motivation.<br>Was fehlt, ist Sicherheit im Handeln.</p>
+            <p>Zanderangeln ist kein Zufall. Es folgt bestimmten Mustern, Abläufen und Entscheidungen, die man lernen und verstehen kann.</p>
+            <p>Viele Angler probieren viel aus: andere Spots, neue Köder, andere Techniken – doch ohne klares System bleibt es oft ein Rätsel.</p>
 
-            <div class="schuld-divider">
-              <p style="font-weight:700;font-size:18px;color:#0a0a0a;margin-bottom:12px;">Und genau das kannst du lernen.</p>
-              <p>Mit einem klaren System verstehst du,<br><span class="accent-text">warum Zander wann, wo und wie beißen.</span></p>
-              <p>Du hörst auf, planlos auszuprobieren –<br>und beginnst, gezielt Entscheidungen zu treffen.</p>
-              <p>So nutzt du deine Zeit am Wasser effektiv<br>und entwickelst Schritt für Schritt die Sicherheit,<br>die erfolgreiche Zanderangler auszeichnet.</p>
+            <p class="highlight-line">Und genau das führt zu dem Gefühl am Wasser: nicht genau zu wissen, was jetzt die richtige Entscheidung ist.</p>
+
+            <div class="schuld-questions">
+              <p><span class="q-dash">–</span> Bleibe ich hier oder wechsle ich den Spot?</p>
+              <p><span class="q-dash">–</span> Ist es der falsche Köder – oder die falsche Führung?</p>
+              <p><span class="q-dash">–</span> Liegt es an der Uhrzeit, am Wasser oder an mir?</p>
+            </div>
+
+            <div class="schuld-transition">
+              <p>Genau hier setzt das Zander Coaching an.</p>
+            </div>
+
+            <div class="schuld-solution">
+              <p>Mit einem klaren System verstehst du, <span class="accent">warum Zander wann, wo und wie beißen.</span></p>
+              <p>Du hörst auf, planlos auszuprobieren – und beginnst, <strong>mit System</strong> gezielt Entscheidungen zu treffen.</p>
+              <p>So nutzt du deine Zeit am Wasser effektiv und entwickelst Schritt für Schritt die Sicherheit, die erfolgreiche Zanderangler auszeichnet.</p>
             </div>
           </div>
 
-          <div class="schuld-cta">
-            <a href="termin.html" class="btn-primary-dark" style="text-align:center;">Jetzt unverbindliches Erstgespräch buchen!</a>
-          </div>
         </div>
 
         <div class="schuld-image">
           <img src="sebastian-zander.jpg" alt="Sebastian Hänel - Zander-Experte">
           <p class="caption">Sebastian Hänel - Gründer Zander Coaching</p>
         </div>
+      </div>
+      <div class="schuld-cta" style="text-align:center;margin-top:40px;">
+        <a href="termin.html" class="btn-primary-dark">Jetzt unverbindliches Erstgespräch buchen!</a>
       </div>
     </div>
   </section>
@@ -2304,20 +2367,20 @@
             Du lernst, wie Zander ticken, welche Muster sie verfolgen und wie du deine Hausgewässer richtig liest – statt nur zu raten.
           </p>
         </article>
-        <article class="pillar-card bottom-right">
-          <div class="number">04</div>
-          <span class="label">Säule</span>
-          <h3 class="pillar-title">Ich analysiere & vertiefe dein System</h3>
-          <p class="pillar-text">
-            Wir werten deine Ergebnisse aus, optimieren deine Entscheidungen und vertiefen das Gelernte dauerhaft für mehr Sicherheit beim Zanderangeln.
-          </p>
-        </article>
         <article class="pillar-card bottom-left">
           <div class="number">03</div>
           <span class="label">Säule</span>
           <h3 class="pillar-title">Ich begleite dich bei der Umsetzung</h3>
           <p class="pillar-text">
             Du setzt die erarbeiteten Strategien am Wasser um – mit klaren Abläufen, direkter Anleitung und persönlicher Betreuung.
+          </p>
+        </article>
+        <article class="pillar-card bottom-right">
+          <div class="number">04</div>
+          <span class="label">Säule</span>
+          <h3 class="pillar-title">Ich analysiere & vertiefe dein System</h3>
+          <p class="pillar-text">
+            Wir werten deine Ergebnisse aus, optimieren deine Entscheidungen und vertiefen das Gelernte dauerhaft für mehr Sicherheit beim Zanderangeln.
           </p>
         </article>
       </div>
@@ -3053,6 +3116,27 @@
     if (stored) {
       try { applyCookies(JSON.parse(stored)); } catch(e) {}
     }
+  })();
+  </script>
+
+  <!-- Pillar Card Reveal Animation -->
+  <script>
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cards = document.querySelectorAll('.pillar-card');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    cards.forEach(function(card) {
+      observer.observe(card);
+    });
   })();
   </script>
 </body>
