@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vielen Dank – Zander Coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #FFB800;
+      --accent-foreground: #0a0a0a;
+      --bg-dark: #0a0a0a;
+      --text-muted: #9ca3af;
+      --border-light: rgba(255,255,255,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0a0a0a;
+      background: #ffffff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-dark);
+      color: #fff;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+
+    /* ===================== DANKE CONTENT ===================== */
+    .danke-section {
+      flex: 1;
+      padding: 80px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .danke-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .danke-inner h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      margin-bottom: 24px;
+      color: #0a0a0a;
+    }
+    .danke-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 48px;
+    }
+    .danke-text strong {
+      font-weight: 700;
+      color: #0a0a0a;
+    }
+
+    /* Video */
+    .danke-video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #111827;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      margin-bottom: 48px;
+    }
+    .danke-video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .play-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.4);
+      transition: transform 0.2s;
+    }
+    .play-circle:hover { transform: scale(1.1); }
+    .play-circle svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+      margin-left: 4px;
+    }
+
+    /* Button */
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 40px;
+      background: var(--bg-dark);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-back:hover {
+      background: #1f2937;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      padding: 48px 0;
+      background: var(--bg-dark);
+      color: #fff;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+    .footer-nav a { color: #9ca3af; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-nav .sep { color: #4b5563; }
+    .footer-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:44px;width:auto;">
+      </a>
+    </div>
+  </header>
+
+  <section class="danke-section">
+    <div class="danke-inner">
+      <h1>Vielen Dank für dein Interesse!</h1>
+      <p class="danke-text">
+        Mein Team und ich werden <strong>überprüfen</strong>, ob wir dir weiterhelfen können. Wir werden uns bei dir zum gebuchten Termin melden, solltest du für eine <strong>Zusammenarbeit infrage kommen</strong>.
+      </p>
+
+      <div class="danke-video">
+        <img src="video-thumbnail.jpg" alt="Danke Video">
+        <div class="play-overlay">
+          <div class="play-circle">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.html" class="btn-back">Zurück zur Startseite</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:60px;width:auto;">
+      </div>
+      <div class="footer-nav">
+        <a href="impressum.html">Impressum</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#datenschutz">Datenschutz</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#haftungsausschluss">Haftungsausschluss</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#agb">AGB</a>
+        <span class="sep">|</span>
+        <a href="#">Cookie-Einstellungen</a>
+      </div>
+      <div class="footer-disclaimer">
+        <p>This site is not a part of the Facebook TM website or Facebook TM Inc. Additionally, this site is NOT endorsed by Facebook TM in any way. FACEBOOK TM is a trademark of FACEBOOK TM.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

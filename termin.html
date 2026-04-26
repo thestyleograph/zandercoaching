@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erstgespräch buchen – Zander Coaching</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #FFB800;
+      --accent-foreground: #0a0a0a;
+      --bg-dark: #0a0a0a;
+      --bg-dark-card: rgba(255,255,255,0.05);
+      --text-muted: #9ca3af;
+      --border-light: rgba(255,255,255,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0a0a0a;
+      background: #ffffff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===================== HEADER ===================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-dark);
+      color: #fff;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .header-cta {
+      padding: 12px 24px;
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .header-cta:hover {
+      background: var(--accent);
+      color: var(--accent-foreground);
+    }
+
+    /* ===================== HERO ===================== */
+    .termin-hero {
+      padding: 80px 0 40px;
+      background: #fff;
+    }
+    .termin-hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .termin-hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 48px;
+      color: #0a0a0a;
+    }
+    .termin-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .termin-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* Video */
+    .termin-video {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: #f3f4f6;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+    .termin-video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .play-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.4);
+      transition: transform 0.2s;
+    }
+    .play-circle:hover { transform: scale(1.1); }
+    .play-circle svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+      margin-left: 3px;
+    }
+
+    /* Checklist */
+    .termin-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .checklist-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .check-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .check-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .checklist-item p {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+    .scroll-indicator svg {
+      width: 28px;
+      height: 28px;
+      color: var(--accent);
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* ===================== CALENDLY ===================== */
+    .calendly-section {
+      padding: 20px 0 80px;
+      background: #fff;
+    }
+    .calendly-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .calendly-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      min-height: 520px;
+    }
+    @media (max-width: 768px) {
+      .calendly-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Calendly left info */
+    .calendly-info {
+      padding: 40px 32px;
+      border-right: 1px solid #e5e7eb;
+    }
+    @media (max-width: 768px) {
+      .calendly-info {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+      }
+    }
+    .calendly-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: #6b7280;
+    }
+    .calendly-name {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+    .calendly-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    .calendly-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .calendly-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #374151;
+    }
+    .calendly-meta-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: #6b7280;
+    }
+    .calendly-desc {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    .calendly-privacy {
+      margin-top: 24px;
+    }
+    .calendly-privacy a {
+      font-size: 13px;
+      color: #2563eb;
+    }
+    .calendly-privacy a:hover {
+      text-decoration: underline;
+    }
+
+    /* Calendly right widget */
+    .calendly-widget {
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+    }
+    .calendly-widget h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #0a0a0a;
+    }
+    .calendly-placeholder {
+      flex: 1;
+      border: 2px dashed #d1d5db;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      color: #9ca3af;
+      font-size: 15px;
+      text-align: center;
+      padding: 24px;
+    }
+
+    /* ===================== FOOTER ===================== */
+    .footer {
+      padding: 48px 0;
+      background: var(--bg-dark);
+      color: #fff;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+    .footer-nav a { color: #9ca3af; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-nav .sep { color: #4b5563; }
+    .footer-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:44px;width:auto;">
+      </a>
+      <a href="index.html" class="header-cta">Zurück zur Startseite</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="termin-hero">
+    <div class="termin-hero-inner">
+      <h1>Dein kostenloses Erstgespräch</h1>
+
+      <div class="termin-hero-grid">
+        <div class="termin-video">
+          <img src="video-thumbnail.jpg" alt="Video Vorstellung">
+          <div class="play-overlay">
+            <div class="play-circle">
+              <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="termin-checklist">
+          <div class="checklist-item">
+            <div class="check-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Wähle deinen Wunschtermin aus und bestätige die Uhrzeit</p>
+          </div>
+          <div class="checklist-item">
+            <div class="check-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Beantworte kurz ein paar Fragen, damit wir uns optimal vorbereiten können</p>
+          </div>
+          <div class="checklist-item">
+            <div class="check-icon">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p>Buche deinen Termin und wir melden uns für dein persönliches Analysegespräch</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CALENDLY ============ -->
+  <section class="calendly-section">
+    <div class="calendly-container">
+      <div class="calendly-card">
+        <div class="calendly-info">
+          <div class="calendly-avatar">SH</div>
+          <p class="calendly-name">Sebastian Hänel</p>
+          <h2 class="calendly-title">Vorgespräch zum Zandercoaching</h2>
+          <div class="calendly-meta">
+            <div class="calendly-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              10 min
+            </div>
+            <div class="calendly-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Anruf
+            </div>
+          </div>
+          <p class="calendly-desc">In diesem Vorgespräch analysieren wir kurz deine Ausgangslage und schauen, ob wir dir weiterhelfen können.</p>
+          <div class="calendly-privacy">
+            <a href="impressum.html">Datenschutzerklärung</a>
+          </div>
+        </div>
+
+        <div class="calendly-widget">
+          <h3>Datum &amp; Uhrzeit wählen</h3>
+          <div class="calendly-placeholder">
+            <!-- Calendly inline widget -->
+            <p>Calendly-Widget wird hier eingebunden.<br><br>
+            Füge deinen Calendly-Embed-Code hier ein:<br>
+            <code>&lt;div class="calendly-inline-widget" data-url="DEINE_CALENDLY_URL"&gt;&lt;/div&gt;</code></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:60px;width:auto;">
+      </div>
+      <div class="footer-nav">
+        <a href="impressum.html">Impressum</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#datenschutz">Datenschutz</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#haftungsausschluss">Haftungsausschluss</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#agb">AGB</a>
+        <span class="sep">|</span>
+        <a href="#">Cookie-Einstellungen</a>
+      </div>
+      <div class="footer-disclaimer">
+        <p>This site is not a part of the Facebook TM website or Facebook TM Inc. Additionally, this site is NOT endorsed by Facebook TM in any way. FACEBOOK TM is a trademark of FACEBOOK TM.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
