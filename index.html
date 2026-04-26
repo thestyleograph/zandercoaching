@@ -1747,6 +1747,44 @@
     .text-center {
       text-align: center;
     }
+
+    /* ===================== MOBILE STICKY CTA ===================== */
+    .mobile-sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: calc(16px + env(safe-area-inset-bottom));
+      left: 16px;
+      right: 16px;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .mobile-sticky-cta.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .mobile-sticky-cta a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--accent);
+      color: var(--accent-foreground);
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(255,184,0,0.4);
+    }
+    @media (max-width: 768px) {
+      .mobile-sticky-cta {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2459,6 +2497,11 @@
     </div>
   </footer>
 
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-sticky-cta" id="mobileCta">
+    <a href="#kontakt">Jetzt Termin vereinbaren</a>
+  </div>
+
   <script>
     function toggleFaq(button) {
       const item = button.closest('.faq-item');
@@ -2472,6 +2515,25 @@
         item.classList.add('open');
       }
     }
+
+    // Mobile Sticky CTA – show when hero leaves viewport
+    (function() {
+      const hero = document.querySelector('.hero');
+      const cta = document.getElementById('mobileCta');
+      if (!hero || !cta) return;
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            cta.classList.remove('visible');
+          } else {
+            cta.classList.add('visible');
+          }
+        });
+      }, { threshold: 0 });
+
+      observer.observe(hero);
+    })();
   </script>
 </body>
 </html>
