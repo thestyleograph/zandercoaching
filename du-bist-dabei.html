@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Du bist dabei! – Zander Coaching</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ===================== REUSED: Base Reset & Variables ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #FFB800;
+      --accent-foreground: #0a0a0a;
+      --bg-dark: #0a0a0a;
+      --text-muted: #9ca3af;
+      --border-light: rgba(255,255,255,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0a0a0a;
+      background: #ffffff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===================== REUSED: Header ===================== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-dark);
+      color: #fff;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+
+    /* ===================== PAGE CONTENT ===================== */
+    .page-section {
+      flex: 1;
+      padding: 80px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    /* REUSED: Icon Circle (from fast-geschafft) */
+    .icon-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(255,184,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+    }
+    .icon-circle svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* REUSED: Headline */
+    .page-inner h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #0a0a0a;
+    }
+
+    /* REUSED: Accent Subline */
+    .subline-accent {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .page-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* REUSED: Hint Box */
+    .hint-box {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 28px 32px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    .hint-box-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 20px;
+    }
+
+    /* NEW: Numbered Steps */
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--accent-foreground);
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .step-content {
+      flex: 1;
+    }
+    .step-content strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 2px;
+    }
+    .step-content span {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.5;
+    }
+    .step-content a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .step-content a:hover {
+      text-decoration: underline;
+    }
+
+    .closing-text {
+      font-size: 15px;
+      color: #777;
+      margin-bottom: 24px;
+    }
+
+    /* REUSED: Button */
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 40px;
+      background: var(--bg-dark);
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-dark:hover {
+      background: #1f2937;
+      transform: translateY(-1px);
+    }
+
+    /* ===================== REUSED: Footer ===================== */
+    .footer {
+      padding: 48px 0;
+      background: var(--bg-dark);
+      color: #fff;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+    .footer-nav a { color: #9ca3af; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-nav .sep { color: #4b5563; }
+    .footer-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ===================== Fade-in Animation ===================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .fade-up-d1 { animation-delay: 0.1s; }
+    .fade-up-d2 { animation-delay: 0.2s; }
+    .fade-up-d3 { animation-delay: 0.35s; }
+    .fade-up-d4 { animation-delay: 0.5s; }
+    .fade-up-d5 { animation-delay: 0.65s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- REUSED: Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:44px;width:auto;">
+      </a>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="page-inner">
+
+      <!-- NEW: Checkmark Icon -->
+      <div class="icon-circle fade-up">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </div>
+
+      <h1 class="fade-up fade-up-d1">Du bist dabei!</h1>
+      <p class="subline-accent fade-up fade-up-d2">Danke für deine Bestätigung.</p>
+      <p class="page-text fade-up fade-up-d2">
+        Willkommen im Zander Coaching Newsletter. Ab jetzt bekommst du regelmäßig wertvolle Inhalte, Updates und Einblicke direkt in dein Postfach.
+      </p>
+
+      <!-- NEW: Steps Box -->
+      <div class="hint-box fade-up fade-up-d3">
+        <p class="hint-box-title">Damit du keine E-Mail verpasst:</p>
+        <ul class="steps-list">
+          <li>
+            <span class="step-number">1</span>
+            <div class="step-content">
+              <strong>Speichere meine E-Mail-Adresse als Kontakt:</strong>
+              <span>So erkennt dein Postfach, dass meine E-Mails wichtig für dich sind.</span>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">2</span>
+            <div class="step-content">
+              <strong>Falls meine E-Mail im Spam-, Werbung- oder Updates-Ordner landet, verschiebe sie bitte in deinen normalen Posteingang.</strong>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">3</span>
+            <div class="step-content">
+              <strong>Nutzt du Gmail? Ziehe meine E-Mail in den Tab „Primär".</strong>
+              <span>Damit lernt Gmail, zukünftige E-Mails direkt im Hauptpostfach anzuzeigen.</span>
+            </div>
+          </li>
+          <li>
+            <span class="step-number">4</span>
+            <div class="step-content">
+              <strong>Markiere meine E-Mail optional als wichtig.</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <p class="closing-text fade-up fade-up-d4">Das war's. Du bist jetzt offiziell eingetragen.</p>
+      <a href="index.html" class="btn-dark fade-up fade-up-d5">Zurück zur Startseite</a>
+
+    </div>
+  </section>
+
+  <!-- REUSED: Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:60px;width:auto;">
+      </div>
+      <div class="footer-nav">
+        <a href="impressum.html">Impressum</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#datenschutz">Datenschutz</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#haftungsausschluss">Haftungsausschluss</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#agb">AGB</a>
+        <span class="sep">|</span>
+        <a href="#">Cookie-Einstellungen</a>
+      </div>
+      <div class="footer-disclaimer">
+        <p>This site is not a part of the Facebook TM website or Facebook TM Inc. Additionally, this site is NOT endorsed by Facebook TM in any way. FACEBOOK TM is a trademark of FACEBOOK TM.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
