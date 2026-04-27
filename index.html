@@ -1205,6 +1205,30 @@
       object-fit: cover;
       display: block;
     }
+    .transformation-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 12px 14px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .transformation-label .t-name {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .transformation-label .t-location {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+      margin-top: 2px;
+    }
     @media (min-width: 768px) {
       .transformation-card {
         width: 260px;
@@ -2269,7 +2293,7 @@
           <div class="problem-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
           </div>
-          <h3>„Ich finde kaum Zeit zum Angeln"</h3>
+          <h3>„Ich will meine begrenzte Zeit am Wasser effektiv nutzen"</h3>
           <p>Zwischen Job, Familie und Verpflichtungen sind deine Stunden am Wasser selten – und genau dann willst du, dass es sich auch lohnt.</p>
         </div>
 
@@ -2277,7 +2301,7 @@
           <div class="problem-card-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
           </div>
-          <h3>„Ich weiß nie, ob Spot oder Köder stimmt"</h3>
+          <h3>„Ich bin unsicher, ob Spot und Köder stimmen"</h3>
           <p>Du probierst herum, wechselst Spots, Köder und Techniken – aber ohne klares System bleibt alles ein Glücksspiel.</p>
         </div>
 
@@ -2352,23 +2376,23 @@
         </div>
         <article class="pillar-card top-left">
           <div class="number">01</div>
-          <span class="label">Säule</span>
-          <h3 class="pillar-title">Ich analysiere deine Ausgangssituation</h3>
+
+          <h3 class="pillar-title">Wir analysieren deine Ausgangssituation</h3>
           <p class="pillar-text">
             Ich schaue mir dein Tackle, deine Gewässer und deine verfügbare Zeit genau an. So entsteht eine Strategie, die wirklich zu deinem Alltag passt.
           </p>
         </article>
         <article class="pillar-card top-right">
           <div class="number">02</div>
-          <span class="label">Säule</span>
-          <h3 class="pillar-title">Ich zeige dir Zander & Gewässer</h3>
+
+          <h3 class="pillar-title">Du lernst den Zander und Gewässer zu verstehen</h3>
           <p class="pillar-text">
             Du lernst, wie Zander ticken, welche Muster sie verfolgen und wie du deine Hausgewässer richtig liest – statt nur zu raten.
           </p>
         </article>
         <article class="pillar-card bottom-left">
           <div class="number">03</div>
-          <span class="label">Säule</span>
+
           <h3 class="pillar-title">Ich begleite dich bei der Umsetzung</h3>
           <p class="pillar-text">
             Du setzt die erarbeiteten Strategien am Wasser um – mit klaren Abläufen, direkter Anleitung und persönlicher Betreuung.
@@ -2376,8 +2400,8 @@
         </article>
         <article class="pillar-card bottom-right">
           <div class="number">04</div>
-          <span class="label">Säule</span>
-          <h3 class="pillar-title">Ich analysiere & vertiefe dein System</h3>
+
+          <h3 class="pillar-title">Wir analysieren, optimieren und vertiefen dein System</h3>
           <p class="pillar-text">
             Wir werten deine Ergebnisse aus, optimieren deine Entscheidungen und vertiefen das Gelernte dauerhaft für mehr Sicherheit beim Zanderangeln.
           </p>
@@ -2551,18 +2575,18 @@
     </div>
     <div class="slider-track-wrapper">
       <div class="slider-track" id="sliderTrack">
-        <div class="transformation-card"><img src="transformations/transformation-01.jpg" alt="Erfolgsgeschichte 1" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-02.jpg" alt="Erfolgsgeschichte 2" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-03.jpg" alt="Erfolgsgeschichte 3" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-04.jpg" alt="Erfolgsgeschichte 4" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-05.jpg" alt="Erfolgsgeschichte 5" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-06.jpg" alt="Erfolgsgeschichte 6" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-07.jpg" alt="Erfolgsgeschichte 7" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-08.jpg" alt="Erfolgsgeschichte 8" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-09.jpg" alt="Erfolgsgeschichte 9" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-10.jpg" alt="Erfolgsgeschichte 10" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-11.jpg" alt="Erfolgsgeschichte 11" loading="lazy"></div>
-        <div class="transformation-card"><img src="transformations/transformation-12.jpg" alt="Erfolgsgeschichte 12" loading="lazy"></div>
+        <div class="transformation-card"><img src="transformations/transformation-01.jpg" alt="Erfolgsgeschichte 1" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-02.jpg" alt="Erfolgsgeschichte 2" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-03.jpg" alt="Erfolgsgeschichte 3" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-04.jpg" alt="Erfolgsgeschichte 4" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-05.jpg" alt="Erfolgsgeschichte 5" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-06.jpg" alt="Erfolgsgeschichte 6" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-07.jpg" alt="Erfolgsgeschichte 7" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-08.jpg" alt="Erfolgsgeschichte 8" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-09.jpg" alt="Erfolgsgeschichte 9" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-10.jpg" alt="Erfolgsgeschichte 10" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-11.jpg" alt="Erfolgsgeschichte 11" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-12.jpg" alt="Erfolgsgeschichte 12" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
       </div>
     </div>
     <div class="transformations-cta">
@@ -2570,6 +2594,17 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
         Noch mehr Erfolgsgeschichten
       </a>
+    </div>
+  </section>
+
+  <!-- ============ TRUSTPILOT ============ -->
+  <section class="trustpilot-section">
+    <div class="trustpilot-inner">
+      <!-- TrustBox widget - Grid -->
+      <div class="trustpilot-widget" data-locale="de-DE" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="649be946c113a6f5759992b9" data-style-height="500px" data-style-width="100%" data-token="d16d6ce2-9bb5-444f-b18c-dd3835314286" data-stars="1,2,3,4,5" data-review-languages="de">
+        <a href="https://de.trustpilot.com/review/zandercoaching.de" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
     </div>
   </section>
 
@@ -2665,16 +2700,8 @@
     </div>
   </section>
 
-  <!-- ============ TRUSTPILOT ============ -->
-  <section class="trustpilot-section">
-    <div class="trustpilot-inner">
-      <!-- TrustBox widget - Grid -->
-      <div class="trustpilot-widget" data-locale="de-DE" data-template-id="539adbd6dec7e10e686debee" data-businessunit-id="649be946c113a6f5759992b9" data-style-height="500px" data-style-width="100%" data-token="d16d6ce2-9bb5-444f-b18c-dd3835314286" data-stars="1,2,3,4,5" data-review-languages="de">
-        <a href="https://de.trustpilot.com/review/zandercoaching.de" target="_blank" rel="noopener">Trustpilot</a>
-      </div>
-      <!-- End TrustBox widget -->
-
-      <!-- Fallback reviews (hidden when TrustBox loads) -->
+  <!-- Trustpilot fallback reviews (hidden) -->
+  <section class="trustpilot-section" style="display:none;">
       <div class="reviews-grid" style="display:none;">
         <div class="review-card">
           <div class="review-stars">
