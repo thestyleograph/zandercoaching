@@ -1630,6 +1630,8 @@
       padding: 32px;
       border: 1px solid rgba(255,255,255,0.1);
       transition: border-color 0.2s;
+      display: flex;
+      flex-direction: column;
     }
 
     .resource-card:hover {
@@ -1665,14 +1667,16 @@
       margin-bottom: 8px;
     }
 
-    .resource-card p {
+    .resource-card p:last-of-type {
       color: #d1d5db;
       margin-bottom: 24px;
       line-height: 1.6;
+      flex: 1;
     }
 
     .btn-outline {
       display: inline-flex;
+      align-self: flex-start;
       padding: 12px 24px;
       border: 2px solid var(--accent);
       color: var(--accent);
@@ -2441,7 +2445,7 @@
           <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/20d7e317-bd2b-4a63-b238-a965a0bac86b?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Karsten</div></div>
           <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/a1de1fc5-0865-4ffc-88ae-6462979a6cff?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Peter</div></div>
           <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/2dea6605-2a79-4f19-bf7a-a0d59df48cb7?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Timo</div></div>
-          <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/e2bf219e-4699-4b3f-9283-301808ee8edb?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Fette</div></div>
+          <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/e2bf219e-4699-4b3f-9283-301808ee8edb?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Felte</div></div>
           <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/5a3feb7e-fe00-4e7b-a7cc-b33c6a462740?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Ronny</div></div>
           <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/71755a43-ca00-4b2f-a5d7-608c4d1700d7?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Vaheh</div></div>
           <div class="carousel-item"><div class="carousel-item-inner"><div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/646387/87f0cce2-aa7a-4b76-9deb-279d967a7d96?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe></div></div><div class="carousel-item-label">Kevin</div></div>
@@ -2844,7 +2848,7 @@
           <h3>Zander-Podcast</h3>
           <p class="subtitle">Der Zander-Angel-Podcast</p>
           <p>Wöchentlich neue Tipps, Strategien und Erfahrungen rund ums Zanderangeln. Neue Folgen erscheinen mit Wissenswerten, die du direkt am Wasser umsetzen kannst.</p>
-          <button class="btn-outline">Jetzt anhören →</button>
+          <a href="https://open.spotify.com/show/09kDVtvX2zrAOHcIAwQsW3" target="_blank" rel="noopener" class="btn-outline">Jetzt anhören →</a>
         </div>
 
         <div class="resource-card">
@@ -2853,8 +2857,8 @@
           </div>
           <h3>YouTube Kanal</h3>
           <p class="subtitle">Zander Praxisvideos</p>
-          <p>Praxisvideos, Tutorials und Live-Sessions vom Wasser. Lerne visuell echte Fang-Situationen und bekomme Techniken im Detail erklärt.</p>
-          <button class="btn-outline">Kanal besuchen →</button>
+          <p>Auf dem Kanal findest du regelmäßig Videos mit wertvollen Tipps und Tricks. Lerne visuell echte Fang-Situationen und bekomme Techniken im Detail erklärt.</p>
+          <a href="https://www.youtube.com/@Sebastianhaenel/videos" target="_blank" rel="noopener" class="btn-outline">Kanal besuchen →</a>
         </div>
 
         <div class="resource-card">
@@ -2863,8 +2867,8 @@
           </div>
           <h3>Zeck Fishing Shop</h3>
           <p class="subtitle">Das perfekte Zander-Tackle</p>
-          <p>Die ultimative Angelshop für dein Tackle. Rods und weitere Premium-Ausrüstung für erfolgreiches Zanderangeln – speziell ausgewählt.</p>
-          <button class="btn-outline">App entdecken →</button>
+          <p>Tackle, Köder, Ruten und alles, was du für einen erfolgreichen Angeltrip brauchst – speziell für Zanderangler ausgewählt.</p>
+          <a href="https://www.zeck-fishing.com/shop/raubfisch-ausruestung/zander" target="_blank" rel="noopener" class="btn-outline">Shop besuchen →</a>
         </div>
       </div>
     </div>
@@ -2906,8 +2910,6 @@
         <a href="impressum.html#datenschutz">Datenschutz</a>
         <span class="sep">|</span>
         <a href="impressum.html#haftungsausschluss">Haftungsausschluss</a>
-        <span class="sep">|</span>
-        <a href="impressum.html#agb">AGB</a>
         <span class="sep">|</span>
         <a href="#" onclick="cookieOpenSettings();return false;">Cookie-Einstellungen</a>
       </div>
