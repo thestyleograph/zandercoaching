@@ -1072,6 +1072,107 @@
       margin-top: 8px;
     }
 
+    /* ===================== TEAM ===================== */
+    .team-section {
+      padding: 80px 0;
+      background: var(--bg-dark);
+      color: #fff;
+    }
+    .team-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .team-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .team-header h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .team-header p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    @media (min-width: 640px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .team-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .team-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s;
+    }
+    .team-card:hover {
+      border-color: rgba(255,184,0,0.3);
+    }
+    .team-card-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+    }
+    .team-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .team-card-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .team-card-role {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .team-card-text {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #d1d5db;
+      max-height: 140px;
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 4px;
+    }
+    .team-card-text::-webkit-scrollbar {
+      width: 4px;
+    }
+    .team-card-text::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.05);
+      border-radius: 2px;
+    }
+    .team-card-text::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.15);
+      border-radius: 2px;
+    }
+    .team-card-text::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
     /* ===================== ANGEBOT ===================== */
     .angebot-section {
       padding: 80px 0;
@@ -2513,6 +2614,50 @@
         <div class="stat-card">
           <div class="stat-value">100+</div>
           <div class="stat-label">Gewässer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="team-section">
+    <div class="team-inner">
+      <div class="team-header">
+        <h2>Das Team hinter Sebastian</h2>
+        <p>Hinter dem Coaching steht ein eingespieltes Team, das dich fachlich, strategisch und organisatorisch unterstützt – damit du mit mehr Sicherheit ans Wasser gehst.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <img class="team-card-img" src="images/team/josi.jpg" alt="Josi" loading="lazy">
+          <div class="team-card-body">
+            <div class="team-card-name">Josi</div>
+            <div class="team-card-role">Strategieberatung und Organisationstalent</div>
+            <div class="team-card-text">Josi arbeitet schon seit Jahren intensiv mit Sebastian zusammen und hat so alle Prozesse innerhalb des Unternehmens durchlaufen. Sie ist die gute Seele und Organisationstalent hinter dem Zander Coaching. Ohne ihre Fähigkeit Prozesse zu überwachen und ihre Begeisterung für das Thema, wäre Sebastian wohl nicht in der Lage gewesen, so vielen Anglern zu helfen. Heute ist sie vor allem in der Strategieberatung tätig.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-card-img" src="images/team/rico.jpg" alt="Rico" loading="lazy">
+          <div class="team-card-body">
+            <div class="team-card-name">Rico</div>
+            <div class="team-card-role">Zander-Coach</div>
+            <div class="team-card-text">Rico ist Kunde 0 des Zander Coaching Programms von Sebastian Hänel. Nach Beginn der Zusammenarbeit, hat er sein Hausgewässer, den Rhein bei Düsseldorf, spielend gemeistert. Rico kann man als „zanderbekloppt" beschreiben. Jede freie Minute steht er am Wasser und geht seiner Leidenschaft nach. Im Laufe der Zeit wurde er so gut, dass er mittlerweile auf einem Level mit Sebastian angelt und auch andere Gewässer problemlos knackt. Über die Jahre hat sich so aus der Zusammenarbeit eine Freundschaft entwickelt. Heute ist Rico als Coach in den Trainingsprogrammen von Sebastian tätig.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-card-img" src="images/team/max.jpg" alt="Max" loading="lazy">
+          <div class="team-card-body">
+            <div class="team-card-name">Max</div>
+            <div class="team-card-role">Zander-Coach</div>
+            <div class="team-card-text">Max ist nicht nur der Produzent und Kopf hinter den Zander Filmen von Sebastian, er ist auch ein sehr versierter und erfahrener Angler. Im Rahmen des Coaching Programms kümmert er sich vor allem um die Optimierung der Ausrüstung und um die Motivation der Teilnehmer.</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img class="team-card-img" src="images/team/christian.jpg" alt="Christian" loading="lazy">
+          <div class="team-card-body">
+            <div class="team-card-name">Christian</div>
+            <div class="team-card-role">Kundenmanagement, Videoproduktion</div>
+            <div class="team-card-text">Christian und Sebastian kennen sich schon seit über einem Jahrzehnt. Auf diesem Weg war er von Anfang an beim Projekt Zander Coaching dabei. Im Laufe der Zeit wurde er in immer mehr Prozesse im Unternehmen integriert. Seine Expertise als Foto- und Videograph konnte er schon in vielen Produktionen mit einfließen lassen. Darüberhinaus halfen seine energische Art Dinge schnell umzusetzen und seine kreativen Ideen Zander Coaching rasant weiter zu wachsen. Voller Leidenschaft unterstützt er Sebastians Vision Anglern dabei zu helfen sicher und regelmäßig Zander zu fangen. Heute leitet er den Bereich Kundenmanagement.</div>
+          </div>
         </div>
       </div>
     </div>
