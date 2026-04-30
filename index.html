@@ -1282,14 +1282,11 @@
       display: flex;
       gap: 20px;
       width: max-content;
-      animation: slider-scroll 60s linear infinite;
+      cursor: grab;
+      will-change: transform;
     }
-    .slider-track:hover {
-      animation-play-state: paused;
-    }
-    @keyframes slider-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .slider-track.is-dragging {
+      cursor: grabbing;
     }
     .transformation-card {
       flex-shrink: 0;
@@ -2732,6 +2729,8 @@
         <div class="transformation-card"><img src="transformations/transformation-10.jpg" alt="Erfolgsgeschichte 10" loading="lazy"><div class="transformation-label"><span class="t-name">Alex</span><span class="t-location">Donau (Deutschland)</span></div></div>
         <div class="transformation-card"><img src="transformations/transformation-11.jpg" alt="Erfolgsgeschichte 11" loading="lazy"><div class="transformation-label"><span class="t-name">Philipp</span><span class="t-location">Elbe</span></div></div>
         <div class="transformation-card"><img src="transformations/transformation-12.jpg" alt="Erfolgsgeschichte 12" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-13.jpg" alt="Erfolgsgeschichte 13" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
+        <div class="transformation-card"><img src="transformations/transformation-14.jpg" alt="Erfolgsgeschichte 14" loading="lazy"><div class="transformation-label"><span class="t-name">Name</span><span class="t-location">Gewässer</span></div></div>
       </div>
     </div>
     <div class="transformations-cta">
@@ -3306,6 +3305,105 @@
     cards.forEach(function(card) {
       observer.observe(card);
     });
+  })();
+  </script>
+
+  <!-- Transformation Slider: Auto-scroll + Swipe -->
+  <script>
+  (function() {
+    var track = document.getElementById('sliderTrack');
+    if (!track) return;
+
+    // Duplicate cards for infinite loop
+    var cards = track.innerHTML;
+    track.innerHTML = cards + cards;
+
+    var pos = 0;
+    var speed = 0.5; // px per frame
+    var halfWidth = track.scrollWidth / 2;
+    var isDragging = false;
+    var startX = 0;
+    var dragStartPos = 0;
+    var lastX = 0;
+    var velocity = 0;
+    var animId = null;
+    var resumeTimer = null;
+    var autoPlay = true;
+
+    function animate() {
+      if (autoPlay && !isDragging) {
+        pos -= speed;
+        if (pos <= -halfWidth) pos += halfWidth;
+        if (pos > 0) pos -= halfWidth;
+      } else if (!isDragging && Math.abs(velocity) > 0.1) {
+        // Momentum after swipe
+        pos += velocity;
+        velocity *= 0.95;
+        if (pos <= -halfWidth) pos += halfWidth;
+        if (pos > 0) pos -= halfWidth;
+      }
+      track.style.transform = 'translateX(' + pos + 'px)';
+      animId = requestAnimationFrame(animate);
+    }
+
+    function onDragStart(x) {
+      isDragging = true;
+      autoPlay = false;
+      startX = x;
+      lastX = x;
+      dragStartPos = pos;
+      velocity = 0;
+      track.classList.add('is-dragging');
+      if (resumeTimer) clearTimeout(resumeTimer);
+    }
+
+    function onDragMove(x) {
+      if (!isDragging) return;
+      var diff = x - startX;
+      velocity = x - lastX;
+      lastX = x;
+      pos = dragStartPos + diff;
+      if (pos <= -halfWidth) pos += halfWidth;
+      if (pos > 0) pos -= halfWidth;
+    }
+
+    function onDragEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('is-dragging');
+      // Resume auto-scroll after 4s
+      resumeTimer = setTimeout(function() {
+        velocity = 0;
+        autoPlay = true;
+      }, 4000);
+    }
+
+    // Mouse events
+    track.addEventListener('mousedown', function(e) {
+      e.preventDefault();
+      onDragStart(e.clientX);
+    });
+    window.addEventListener('mousemove', function(e) {
+      onDragMove(e.clientX);
+    });
+    window.addEventListener('mouseup', onDragEnd);
+
+    // Touch events
+    track.addEventListener('touchstart', function(e) {
+      onDragStart(e.touches[0].clientX);
+    }, { passive: true });
+    track.addEventListener('touchmove', function(e) {
+      onDragMove(e.touches[0].clientX);
+    }, { passive: true });
+    track.addEventListener('touchend', onDragEnd);
+
+    // Prevent link clicks after drag
+    track.addEventListener('click', function(e) {
+      if (Math.abs(velocity) > 2) e.preventDefault();
+    });
+
+    // Start
+    animate();
   })();
   </script>
 </body>
