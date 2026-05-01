@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seite nicht gefunden – Zander Coaching</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #FFB800;
+      --accent-foreground: #0a0a0a;
+      --bg-dark: #0a0a0a;
+      --text-muted: #9ca3af;
+      --border-light: rgba(255,255,255,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #0a0a0a;
+      background: #ffffff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-dark);
+      color: #fff;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+
+    .page-section {
+      flex: 1;
+      padding: 80px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page-inner {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .error-code {
+      font-size: clamp(72px, 15vw, 120px);
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 16px;
+      opacity: 0.15;
+    }
+
+    .page-inner h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #0a0a0a;
+    }
+
+    .page-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 40px;
+      background: var(--accent);
+      color: var(--accent-foreground);
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: #e5a600;
+      transform: translateY(-1px);
+    }
+
+    .footer {
+      padding: 48px 0;
+      background: var(--bg-dark);
+      color: #fff;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+    .footer-nav a { color: #9ca3af; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--accent); }
+    .footer-nav .sep { color: #4b5563; }
+    .footer-disclaimer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .fade-up-d1 { animation-delay: 0.1s; }
+    .fade-up-d2 { animation-delay: 0.2s; }
+    .fade-up-d3 { animation-delay: 0.35s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:44px;width:auto;">
+      </a>
+    </div>
+  </header>
+
+  <section class="page-section">
+    <div class="page-inner">
+      <div class="error-code fade-up">404</div>
+      <h1 class="fade-up fade-up-d1">Hier beißt leider nichts.</h1>
+      <p class="page-text fade-up fade-up-d2">
+        Die Seite, die du suchst, existiert nicht oder wurde verschoben. Kein Grund zur Sorge – manchmal muss man einfach den Spot wechseln.
+      </p>
+      <a href="index.html" class="btn-primary fade-up fade-up-d3">Zurück zur Startseite</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="logo-zander.png" alt="ZANDER by Sebastian Hänel" style="height:60px;width:auto;">
+      </div>
+      <div class="footer-nav">
+        <a href="impressum.html">Impressum</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#datenschutz">Datenschutz</a>
+        <span class="sep">|</span>
+        <a href="impressum.html#haftungsausschluss">Haftungsausschluss</a>
+        <span class="sep">|</span>
+        <a href="#">Cookie-Einstellungen</a>
+      </div>
+      <div class="footer-disclaimer">
+        <p>This site is not a part of the Facebook TM website or Facebook TM Inc. Additionally, this site is NOT endorsed by Facebook TM in any way. FACEBOOK TM is a trademark of FACEBOOK TM.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
